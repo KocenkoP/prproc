@@ -1,33 +1,68 @@
 #include <stdio.h>
 #include <math.h>
-int main ()      
+#include <iostream>
+
+int main ()  
 {
-    float a, b, c, d, x1, x2, x3;
-    printf("program liczy pierwiastki funkcji kwadratowej\n");
-    
-    printf("podaj zmienna a: \n");
-    scanf("%f", &a);
-    printf("podaj zmienna b: \n");
-    scanf("%f", &b);
-    printf("podaj zmienna c: \n");
-    scanf("%f", &c);
-    
-    d=(b*b)-(4*a*c);
-    printf("___________________________________\n");
-    
-    if (d>0)
-    {
-        x1=(-b+ sqrt(d)) / (2*a);
-        x2=(-b- sqrt(d)) / (2*a);
-        printf("x1 = %.2f\nx2 = %.2f\n", x1, x2);
-    }
-    else if (d==0)
-    {
-        x3=-(b/2*a);
-        printf("x = %.2f\n", x3);
-    }
-    else
-    {
-        printf("delta jest ujemna\n");
-    }
+	float a,w;
+	char i,o;
+	printf("KALKULATOR TEMPERATUR\n");
+	printf("podaj wartosc temperatury: ");
+	scanf("%f", &a);
+	printf("podaj jednostke wpisanej temperatury: ");
+	scanf(" %c", &i);
+	printf("podaj jednostke temperatury ktora chcesz uzyskac: ");
+	scanf(" %c", &o);
+	switch(i)
+	{
+	case 'c':
+	switch(o)
+	{
+		case 'f':
+			w=(a*(9.0/5.0))+32;
+			printf("wynik to %f F\n", w);
+			break;
+		case 'k':
+			w=a+273;
+			printf("wynik to %f K\n", w);
+			break;
+		default:
+			printf("podales zle jednostki\n");
+	}
+			break;
+	case 'f':
+	switch(o)
+	{
+		case 'c':
+			w=5*(a-32)/9;
+			printf("wynik to %f C\n", w);
+			break;
+		case 'k':
+			w=(a + 459.67)*(5.0/9.0);
+			printf("wynik to %f K\n", w);
+			break;
+		default:
+			printf("podales zle jednostki\n");
+	}
+			break;
+	case 'k':
+	switch(o)
+	{
+		case 'f':
+			w=(9.0/5.0)*a-459.67;
+			printf("wynik to %f F\n", w);
+			break;
+		case 'c':
+			w=a-273;
+			printf("wynik to %f C\n", w);
+			break;
+		default:
+			printf("podales zle jednostki\n");
+	}
+		default:
+			printf("podales zle jednostki\n");
+			
+			break;
+	}
+    system("pause");
 }
